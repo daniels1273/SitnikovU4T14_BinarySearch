@@ -11,7 +11,7 @@ public class SpellCheckApp {
         String word = scan.nextLine();
 
         while (!word.equals("q")) {
-            if (checker.linearSpellCheck(word)) {
+            if (checker.binarySpellCheck(word)) {
                 System.out.println("-- " + word + " WAS found in the dictionary (so it's spelled correctly)");
             } else {
                 System.out.println("-- " + word + " was NOT found in the dictionary (so it's not spelled correctly)");

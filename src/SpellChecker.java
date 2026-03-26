@@ -42,9 +42,26 @@ public class SpellChecker {
      */
     public boolean binarySpellCheck(String word) {
         int loopCounter = 0; // for testing
+        int leftIdx = 0;
+        int rightIdx = dictionary.size() - 1;
 
-        /* TODO: IMPLEMENT ME */
-
+        while (rightIdx >= leftIdx){
+            loopCounter++;
+            int middleIdx = (rightIdx + leftIdx) / 2;
+            String curWord = dictionary.get(middleIdx);
+            if (curWord.equals(word)){
+                System.out.println("-- BINARY SEARCH: Number of words checked (loop iterations): " + loopCounter);
+                return true;
+            } else {
+                if (curWord.compareTo(word) > 0){
+                    rightIdx = middleIdx - 1;
+                }
+                if (curWord.compareTo(word) < 0){
+                    leftIdx = middleIdx + 1;
+                }
+            }
+        }
+        System.out.println("-- BINARY SEARCH: Number of words checked (loop iterations): " + loopCounter);
         return false;
     }
 
